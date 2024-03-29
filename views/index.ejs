@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams</title>
+    <style>
+        /* Style for the teams container */
+.teams-container {
+    margin-top: 20px;
+}
+
+/* Style for team */
+.team {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* Style for team name */
+.team h2 {
+    margin-top: 0;
+}
+
+/* Style for members list */
+.members {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Style for member item */
+.member {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+/* Style for member details */
+.member-details {
+    margin-left: 20px;
+}
+
+/* Style for role */
+.role {
+    font-style: italic;
+}
+
+    </style>
+</head>
+
+<body>
+    <h1>Teams</h1>
+    <div class="teams-container">
+        <% teams.forEach(function(team) { %>
+            <div class="team">
+                <h2>
+                    <%= team.teamName %>
+                </h2>
+                <p>Team ID: <%= team.teamId %>
+                </p>
+                <p>Score: <%= team.score %>
+                </p>
+                <h3>Members:</h3>
+                <ul class="members">
+                    <% team.members.forEach(function(member) { %>
+                        <li class="member">
+                            <strong>Name:</strong>
+                            <%= member.user.name %><br>
+                                <div class="member-details">
+                                    <strong>Email:</strong>
+                                    <%= member.user.email %><br>
+                                        <strong>Phone:</strong>
+                                        <%= member.user.phone %><br>
+                                            <strong>Graduation:</strong>
+                                            <%= member.user.gradution %><br>
+                                                <strong>College:</strong>
+                                                <%= member.user.college %><br>
+                                                    <strong>Branch:</strong>
+                                                    <%= member.user.Branch %><br>
+                                                        <strong>Role:</strong> <span class="role">
+                                                            <%= member.role %>
+                                                        </span><br>
+                                </div>
+                        </li>
+                        <% }); %>
+                </ul>
+            </div>
+            <% }); %>
+    </div>
+</body>
+
+</html>
