@@ -11,7 +11,7 @@ import User from './Models/User.model.js';
 const app = express();
 dotenv.config();
 app.set('view engine', 'ejs');
-app.set('views', './views');
+app.set("views", path.join(__dirname, "views"));
 app.get('/', (req, res) => {
     res.send("Hello World");
 });
